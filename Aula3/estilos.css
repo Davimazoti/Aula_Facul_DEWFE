@@ -1,0 +1,122 @@
+.h1ex1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.pex1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.p1ex2{
+    display: flex;
+    justify-content: end;
+    text-transform: uppercase;
+}
+
+.p2ex2{
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+}
+
+.p3ex2{
+    display: flex;
+    justify-content: start;
+    text-indent: 20px;
+}
+
+.h1ex3{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.h2ex3{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-style: italic;
+}
+
+.pex3{
+    line-height: 1.5;
+    display: flex;
+    justify-content: start;
+}
+
+.h2ex4{
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.pex4{
+    font-size: 16px;
+    font-style: italic;
+}
+
+.p2ex4{
+    font-size: 10px;
+    text-decoration: underline;
+}
+
+.divex4{
+    background-color: burlywood;
+    padding: 20px;
+}
+
+#pex5 {
+    color: blue;
+    display: flex;
+    justify-content: center;
+}
+
+.p2ex5 {
+    color: red;
+    font-style: italic;
+}
+
+.ulex6{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+#liex6 {
+    color: green;
+}
+
+.aex6{
+    text-decoration: none;
+}
+
+.divex7{
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+.aex7{
+    color: black;
+}
+
+.aex7:hover{
+    text-transform:uppercase;
+    color: blue;
+}
+
+#a1ex7{
+    text-decoration: underline;
+    font-size: 22px;
+}
+
+#a5ex7{
+    text-transform: lowercase;
+}
