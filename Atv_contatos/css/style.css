@@ -1,0 +1,85 @@
+*{
+    margin: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    background-color: rgb(185, 196, 185);;
+}
+
+h1{
+    color: rgb(56, 82, 56);
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+.contato{
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: azure;
+    border-radius: 6px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.404);
+    margin-bottom: 2%;
+}
+
+.perfil{
+    border-radius: 80px;
+    display: flex;
+    align-self: center;
+    position: absolute;
+    top: 340px;
+}
+
+section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+.fundo{
+    border-radius: 6px 6px 0px 0px;
+}
+
+.titulo{
+    padding-top: 19%;
+    font-size: 25px;
+    align-self: center;
+    font-weight: bold;
+    color: rgb(94, 128, 94);
+}
+
+.email{
+    align-self: center; 
+    font-weight: bold;
+    padding-top: 7%;
+    color: rgb(82, 82, 82);
+}
+
+.baixo{
+    margin: 0px;
+    display: flex;
+    background-color: rgb(165, 165, 165);
+    align-self: center;
+    padding: 20px 32.80% 20px 32.60%;
+    gap: 100px;
+    margin-top: 8%;
+}
+
+.perfil2{
+    border-radius: 80px;
+    display: flex;
+    align-self: center;
+    position: absolute;
+    top: 885px;
+}
+
+.baixo:hover{
+    cursor: pointer;
+}
