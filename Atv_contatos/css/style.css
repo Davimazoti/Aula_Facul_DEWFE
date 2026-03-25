@@ -33,7 +33,7 @@ h1{
     display: flex;
     align-self: center;
     position: absolute;
-    top: 340px;
+    top: 20rem;
 }
 
 section{
@@ -77,7 +77,7 @@ section{
     display: flex;
     align-self: center;
     position: absolute;
-    top: 885px;
+    top: 50rem;
 }
 
 .baixo:hover{
