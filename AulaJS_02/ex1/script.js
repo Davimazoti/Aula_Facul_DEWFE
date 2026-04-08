@@ -7,6 +7,8 @@ function calcular(){
 
     let imc = (peso/(altura * altura));
 
+    console.log(peso)
+    console.log(altura)
     console.log(imc)
 
     if (imc < 18.5){
