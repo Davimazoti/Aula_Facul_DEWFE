@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Clima - Aula de Fetch</title>
+    <style>
+        /* Estilização básica para ficar apresentável na sala de aula */
+        body { font-family: Arial, sans-serif; display: flex; justify-content: center; padding: 50px; background-color: #f0f2f5; }
+        .card { background: white; padding: 20px; border-radius: 10px; shadow: 0 4px 8px rgba(0,0,0,0.1); width: 300px; text-align: center; }
+        button { background-color: #007bff; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; width: 100%; }
+        button:hover { background-color: #0056b3; }
+        .resultado { margin-top: 20px; border-top: 1px solid #eee; padding-top: 10px; display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Clima em São Carlos</h2>
+        <button onclick="consultarClima()">Consultar Agora</button>
+
+        <div id="resultado" class="resultado">
+            <p><strong>Temperatura:</strong> <span id="temp">--</span>°C</p>
+            <p><strong>Condição:</strong> <span id="condicao">--</span></p>
+            <p><strong>Humidade:</strong> <span id="humidade">--</span>%</p>
+        </div>
+    </div>
+
+    <script>
+    /**
+     * Resumo do fluxo: 
+     * A função monta a URL -> faz o fetch -> verifica se deu certo -> 
+     * converte para JSON -> injeta os dados no HTML -> mostra o resultado. 
+     * Se qualquer etapa falhar, o catch exibe o erro.
+     */
+    async function consultarClima() {
+        // Declara uma função assíncrona. O 'async' avisa ao JS que esta função 
+        // fará operações que levam tempo e que usará 'await' internamente.
+        
+        const apiKey = '08366156d971c1f738406047add25416'; 
+        // Chave de autenticação (API Key). É como uma senha que prova que você 
+        // tem permissão para usar o serviço do OpenWeatherMap.
+
+        const cidade = 'Sao Carlos'; 
+        // Nome da cidade consultada. Sem acento para evitar erros de caractere na URL.
+
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&lang=pt_br&units=metric&appid=${apiKey}`;
+        /**
+         * Monta a URL usando Template String (crases). Parâmetros:
+         * q=${cidade} -> cidade a consultar
+         * lang=pt_br -> resposta em português
+         * units=metric -> temperatura em Celsius
+         * appid=${apiKey} -> a chave de autenticação
+         */
+
+        try {
+            // Inicia um bloco de tentativa. Se algo falhar aqui dentro, o código 
+            //pula para o 'catch'.
+
+            const resposta = await fetch(url);
+            /**
+             * Faz a requisição HTTP. O 'await' pausa a função e espera a resposta chegar 
+             * sem travar o navegador. O resultado é um objeto Response.
+             */
+
+            if (!resposta.ok) {
+                // resposta.ok é true apenas se o status HTTP for entre 200-299.
+                // Se for 404 (não achou) ou 401 (chave errada), lançamos um 
+                // erro manualmente.
+                throw new Error("Erro ao acessar API");
+            }
+
+            const dados = await resposta.json();
+            // Converte o corpo da resposta (texto) para um objeto JavaScript. 
+            // Também é assíncrono, por isso exige o 'await'.
+
+            // --- Manipulação do DOM: Inserindo os dados da API nos elementos HTML ---
+
+            // Busca o id="temp" e insere a temperatura formatada com 1 casa decimal.
+            document.getElementById('temp').textContent = dados.main.temp.toFixed(1);
+
+            // Busca id="condicao" e insere a descrição (ex: "céu limpo").
+            // dados.weather é um array, por isso usamos o índice [0].
+            document.getElementById('condicao').textContent = dados.weather[0].description;
+
+            // Busca id="humidade" e insere o valor da umidade relativa (0 a 100).
+            document.getElementById('humidade').textContent = dados.main.humidity;
+
+            // Torna visível a <div> que provavelmente estava oculta (display: none).
+            document.getElementById('resultado').style.display = 'block';
+
+        } catch (erro) {
+            // Se qualquer linha no 'try' falhar, a execução cai aqui.
+            
+            // Exibe mensagem amigável para o usuário.
+            alert("Erro ao buscar dados. Verifique sua conexão ou a Chave da API.");
+
+            // Imprime o erro técnico no console (F12) para o desenvolvedor depurar.
+            console.error(erro);
+        }
+    }
+</script>
+</body>
+</html>
