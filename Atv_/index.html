@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Lista de Destinos dos Sonhos</title>
+</head>
+<body>
+    <form id="form">
+        <label for="nomeCidade">Nome da Cidade: </label>
+        <input type="text" id="nomeCidade" name="nomeCidade">
+        <br>
+        <br>
+        <label for="pais">País: </label>
+        <input type="text" id="pais" name="pais">
+        <br>
+        <br>
+        <button type="button" onclick="enviarDados()">Enviar</button>
+        <button type="button" onclick="exibirDados()">Exibir</button>
+        <br>
+         
+        <ul id="exibir"></ul>
+    </form>
+</body>
+</html>
