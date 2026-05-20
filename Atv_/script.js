@@ -2,7 +2,6 @@ const lista = [];
 
 function enviarDados(){
 
-    let formulario = document.querySelector("#form");
     let nomeCidade = document.querySelector("#nomeCidade").value;
     let pais = document.querySelector("#pais").value;
 
@@ -17,7 +16,7 @@ function enviarDados(){
     };
 
     lista.push(novoObjeto);  
-    
+    event.preventDefault()
     console.log(lista);
     
     document.getElementById("nomeCidade").value = "";
@@ -35,10 +34,16 @@ function exibirDados(){
         const novoItem = document.createElement("li")
 
         novoItem.innerHTML += `Cidade: ${item.nomeCidade} | País: ${item.pais} <br> 
-        <div class="internacional"><input type="checkbox"><label>Internacional</label></div>`;
+        <div class="internacional"><input type="checkbox"><label>Internacional</label></div>
+        <button type="button" onclick="riscar()">Já visitei</button>
+        `;
         novoItem.classList.add("item-cidade");
 
         listaUl.appendChild(novoItem);
     })
+}
+
+function riscar(){
+    
 }
 
